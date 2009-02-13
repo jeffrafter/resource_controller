@@ -1,5 +1,9 @@
 require_dependency 'application'
 
+Dir[File.join(File.dirname(__FILE__), 'resource_controller/**/*.rb')].each { |f|
+  require f
+}
+
 module ResourceController
   ACTIONS           = [:index, :show, :new_action, :create, :edit, :update, :destroy].freeze
   SINGLETON_ACTIONS = (ACTIONS - [:index]).freeze
